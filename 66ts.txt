@@ -1,0 +1,33 @@
+function plusOne(digits: number[]): number[] {
+    let a = 0;
+    for (let i = 0, n = 1; i < digits.length; i++, n *= 10) {
+        a = a + digits[digits.length - i - 1] * n
+    };
+    a += 1;
+    let arr = [];
+    let i = 0;
+    while (a >= 1) {
+        arr[i] = a % 10;
+        i += 1;
+        a = a / 10;
+    }
+    i = 0;
+    let j = arr.length - 1;
+    while (i < j) {
+        let prom = arr [j];
+        arr[j] = arr[i];
+        arr[i] = prom;
+        i++;
+        j--;
+    }
+    return arr;
+    
+};
+======================================================
+function plusOne(digits: number[]): number[] {
+    let num = Number(digits.join(''));
+    num += 1;
+    const arr = num.toString().split('').map(Number);
+    return arr;
+}; 
+=========================================================
